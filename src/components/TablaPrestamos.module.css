@@ -1,0 +1,82 @@
+.contenedor {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla th,
+.tabla td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.tabla th {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  background: #f9fafb;
+}
+
+.tabla tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.vencida td {
+  background: var(--danger-bg);
+}
+
+.vencida td:first-child {
+  box-shadow: inset 4px 0 0 var(--danger);
+}
+
+.carne {
+  display: block;
+  color: var(--text-muted);
+}
+
+.etiqueta {
+  margin-left: 8px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--danger);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.celdaAccion {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.boton {
+  padding: 6px 12px;
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.boton:not(:disabled):hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.vacio {
+  padding: 24px;
+  text-align: center;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}

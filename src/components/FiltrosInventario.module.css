@@ -1,0 +1,22 @@
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.busqueda,
+.select {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.busqueda {
+  flex: 1 1 240px;
+}
+
+.select {
+  flex: 0 1 220px;
+}
