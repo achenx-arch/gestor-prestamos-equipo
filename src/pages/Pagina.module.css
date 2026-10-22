@@ -1,0 +1,9 @@
+.pagina {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+.titulo {
+  margin: 0 0 16px;
+}

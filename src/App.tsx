@@ -1,10 +1,17 @@
-import { TITULO_APP } from './config';
+import Encabezado from './components/Encabezado';
+import InventarioPage from './pages/InventarioPage';
+import { equiposIniciales } from './data/equipos';
 
 function App() {
+  const manejarPrestar = (id: number) => {
+    console.log('Prestar equipo', id);
+  };
+
   return (
-    <main style={{ padding: 24 }}>
-      <h1>{TITULO_APP}</h1>
-    </main>
+    <>
+      <Encabezado equipos={equiposIniciales} />
+      <InventarioPage equipos={equiposIniciales} onPrestar={manejarPrestar} />
+    </>
   );
 }
 

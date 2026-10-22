@@ -1,0 +1,60 @@
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.categoria {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.estado {
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.disponible {
+  color: var(--ok);
+  background: var(--ok-bg);
+}
+
+.prestado {
+  color: var(--danger);
+  background: var(--danger-bg);
+}
+
+.nombre {
+  margin: 0;
+  font-size: 1.05rem;
+  flex: 1;
+}
+
+.boton {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+.boton:not(:disabled):hover {
+  background: var(--primary-hover);
+}
