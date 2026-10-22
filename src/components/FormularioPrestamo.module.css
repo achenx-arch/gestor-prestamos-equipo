@@ -1,0 +1,96 @@
+.fondo {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(15, 23, 42, 0.5);
+  z-index: 10;
+}
+
+.modal {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.titulo {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.equipo {
+  margin: 0;
+  font-weight: 600;
+}
+
+.equipo span {
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.campo input {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-weight: 400;
+}
+
+.campo input[aria-invalid='true'] {
+  border-color: var(--danger);
+  background: var(--danger-bg);
+}
+
+.error {
+  color: var(--danger);
+  font-weight: 500;
+}
+
+.errorEnvio {
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--danger);
+  background: var(--danger-bg);
+  font-size: 0.9rem;
+}
+
+.acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.primario,
+.secundario {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.primario {
+  border: none;
+  background: var(--primary);
+  color: #fff;
+}
+
+.secundario {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
