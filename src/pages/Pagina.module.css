@@ -7,3 +7,11 @@
 .titulo {
   margin: 0 0 16px;
 }
+
+.alerta {
+  margin: 0 0 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: var(--danger);
+  background: var(--danger-bg);
+}

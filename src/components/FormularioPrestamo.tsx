@@ -11,13 +11,23 @@ import styles from './FormularioPrestamo.module.css';
 
 interface FormularioPrestamoProps {
   equipo: Equipo;
-  onGuardar: (datos: DatosFormulario) => void;
+  onGuardar: (datos: DatosFormulario) => void | Promise<void>;
   onCancelar: () => void;
+  /** true mientras la petición a la API está en curso */
+  enviando?: boolean;
+  /** mensaje si la API falló al guardar */
+  errorEnvio?: string | null;
 }
 
 const datosVacios: DatosFormulario = { solicitante: '', carne: '', fechaLimite: '' };
 
-function FormularioPrestamo({ equipo, onGuardar, onCancelar }: FormularioPrestamoProps) {
+function FormularioPrestamo({
+  equipo,
+  onGuardar,
+  onCancelar,
+  enviando = false,
+  errorEnvio = null,
+}: FormularioPrestamoProps) {
   const [datos, setDatos] = useState<DatosFormulario>(datosVacios);
   const [errores, setErrores] = useState<ErroresFormulario>({});
 
@@ -28,6 +38,7 @@ function FormularioPrestamo({ equipo, onGuardar, onCancelar }: FormularioPrestam
 
   const manejarEnvio = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (enviando) return; // evita dobles registros
     const nuevosErrores = validarPrestamo(datos);
     setErrores(nuevosErrores);
     if (Object.keys(nuevosErrores).length > 0) return;
@@ -38,7 +49,7 @@ function FormularioPrestamo({ equipo, onGuardar, onCancelar }: FormularioPrestam
   const hoy = hoyISO();
 
   return (
-    <div className={styles.fondo} onClick={onCancelar}>
+    <div className={styles.fondo} onClick={enviando ? undefined : onCancelar}>
       <form
         className={styles.modal}
         onSubmit={manejarEnvio}
@@ -88,12 +99,19 @@ function FormularioPrestamo({ equipo, onGuardar, onCancelar }: FormularioPrestam
           {errores.fechaLimite && <small className={styles.error}>{errores.fechaLimite}</small>}
         </label>
 
+        {errorEnvio && <p className={styles.errorEnvio}>{errorEnvio}</p>}
+
         <div className={styles.acciones}>
-          <button type="button" className={styles.secundario} onClick={onCancelar}>
+          <button
+            type="button"
+            className={styles.secundario}
+            onClick={onCancelar}
+            disabled={enviando}
+          >
             Cancelar
           </button>
-          <button type="submit" className={styles.primario}>
-            Guardar préstamo
+          <button type="submit" className={styles.primario} disabled={enviando}>
+            {enviando ? 'Guardando…' : 'Guardar préstamo'}
           </button>
         </div>
       </form>
