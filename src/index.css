@@ -1,0 +1,44 @@
+:root {
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --text: #1d2330;
+  --text-muted: #5f6b7a;
+  --border: #dde1e7;
+  --primary: #1f5fbf;
+  --primary-hover: #184c99;
+  --ok: #1e7e45;
+  --ok-bg: #e3f4ea;
+  --danger: #c0352b;
+  --danger-bg: #fbe7e5;
+  --warn-bg: #fff4e0;
+  --radius: 10px;
+
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
